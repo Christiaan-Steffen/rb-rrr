@@ -112,7 +112,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, showViewToggle = tr
               <div className={`relative ${getCardClasses()} rounded-lg overflow-hidden mb-4`}>
                 <div 
                   className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${product.image})` }}
+                  style={{ backgroundImage: `url(${product.imageCarousel[0]})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-rb-black to-transparent opacity-60"></div>
                 <div className={`absolute bottom-0 left-0 right-0 ${

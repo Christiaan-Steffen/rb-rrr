@@ -3,15 +3,17 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/ui/Button';
+import allProducts from '../../data/productsData';
 
 const RugbyJerseysPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  const images = [
-    { src: '/rugby-jersey-frontback.png', alt: 'Rugby Jersey Front and Back View' },
-    { src: '/rugby-jersey-design-guide.png', alt: 'Rugby Jersey Design Guide' },
-    { src: '/rugby-jersey-design-guide-back.png', alt: 'Rugby Jersey Design Guide Back' }
-  ];
+  // Get product data from productsData
+  const product = allProducts.find(p => p.path === '/products/rugby-jerseys');
+  const images = product?.imageCarousel.map((src, index) => ({
+    src,
+    alt: `Rugby Jersey Image ${index + 1}`
+  })) || [];
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -27,7 +29,7 @@ const RugbyJerseysPage: React.FC = () => {
       <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-rb-black relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-50"
-          style={{ backgroundImage: `url(/rugby-jersey-frontback.png)` }}
+          style={{ backgroundImage: `url(${images[0]?.src})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-rb-black to-transparent"></div>
         

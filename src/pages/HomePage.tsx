@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
   const categories = [
     { name: 'School & Team Sports', image: '/School & Team Sports.png', description: 'Rugby, netball, cricket, hockey & athletics', path: '/products/category/school-team-sports' },
     { name: 'Other Sports & Clubs', image: '/Other Sports & Clubs.png', description: 'Soccer, golf, darts & fishing gear', path: '/products/category/other-sports-clubs' },
-    { name: 'Schoolwear & Matric Apparel', image: '/Schoolwear & Matric Apparel.png', description: 'Matric jackets, tracksuits & school apparel', path: '/products/category/schoolwear-matric' },
+    { name: 'Schoolwear & Matric Apparel', image: '/Schoolwear & Matric Apparel.png', description: 'Tracksuits, hoodies & school apparel', path: '/products/category/schoolwear-matric' },
     { name: 'Corporate & Staff Apparel', image: '/Corporate & Staff Apparel.png', description: 'Staff uniforms, jackets & corporate wear', path: '/products/category/corporate-staff' },
     { name: 'Gym & Fitness Apparel', image: '/Gym & Fitness Apparel.png', description: 'Performance wear & fitness apparel', path: '/products/category/gym-fitness' },
     { name: 'Accessories & Branding', image: '/Accessories & Branding.png', description: 'Socks, caps, bags & branded items', path: '/products/category/accessories-branding' }
@@ -126,10 +126,6 @@ const HomePage: React.FC = () => {
                       src={category.image}
                       alt={`${category.name} - ${category.description}`}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      onError={(e) => {
-                        console.log('Image failed to load:', category.image);
-                        e.currentTarget.src = 'https://images.pexels.com/photos/4753879/pexels-photo-4753879.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2';
-                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-rb-black via-rb-black/30 to-transparent opacity-60"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300 p-4">
